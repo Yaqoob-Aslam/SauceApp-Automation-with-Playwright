@@ -6,7 +6,7 @@ test.describe.serial('Swag Labs', () => {
   const BASE_URL = 'https://www.saucedemo.com/';
 
   test.beforeAll(async () => {
-    browser = await chromium.launch({headless: false,args: ['--start-maximized']});
+    browser = await chromium.launch({headless: true, args: ['--start-maximized']});
     context = await browser.newContext({viewport: null,deviceScaleFactor: undefined});
     page = await context.newPage();
   });

@@ -6,7 +6,7 @@ test.describe.serial('Swag Labs', () => {
   const BASE_URL = 'https://www.saucedemo.com/';
 
   test.beforeAll(async () => {
-    browser = await chromium.launch({headless: false,args: ['--start-maximized'],slowMo: 1000});
+    browser = await chromium.launch({headless: true, args: ['--start-maximized'],slowMo: 1000});
     context = await browser.newContext({viewport: null,deviceScaleFactor: undefined});
     page = await context.newPage();
   });
@@ -113,6 +113,7 @@ test.describe.serial('Swag Labs', () => {
       // Verify products are sorted by price (low to high)  
       await page.locator('[data-test="product-sort-container"]').selectOption('hilo');
   });
+  
   test.afterAll(async () => {
      await page.pause();
      //await browser.close();
